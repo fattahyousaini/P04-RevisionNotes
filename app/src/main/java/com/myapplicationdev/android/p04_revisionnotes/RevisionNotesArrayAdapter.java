@@ -15,6 +15,7 @@ public class RevisionNotesArrayAdapter extends ArrayAdapter<Note> {
 	ArrayList<Note> notes;
 	int resource;
 	ImageView iv1, iv2, iv3, iv4, iv5;
+	private int stars;
 
 	public RevisionNotesArrayAdapter(Context context, int resource, ArrayList<Note> notes) {
 		super(context, resource, notes);
@@ -35,11 +36,25 @@ public class RevisionNotesArrayAdapter extends ArrayAdapter<Note> {
 		Note note = notes.get(position);
 
 		//Check if the property for starts >= 5, if so, "light" up the stars
-		if (/*stars >= 5*/) {
+		if (stars >= 5) {
 			iv5.setImageResource(android.R.drawable.btn_star_big_on);
 			iv4.setImageResource(android.R.drawable.btn_star_big_on);
 			iv3.setImageResource(android.R.drawable.btn_star_big_on);
 			iv2.setImageResource(android.R.drawable.btn_star_big_on);
+			iv1.setImageResource(android.R.drawable.btn_star_big_on);
+		} else if (stars >= 4) {
+			iv4.setImageResource(android.R.drawable.btn_star_big_on);
+			iv3.setImageResource(android.R.drawable.btn_star_big_on);
+			iv2.setImageResource(android.R.drawable.btn_star_big_on);
+			iv1.setImageResource(android.R.drawable.btn_star_big_on);
+		} else if (stars >= 3) {
+			iv3.setImageResource(android.R.drawable.btn_star_big_on);
+			iv2.setImageResource(android.R.drawable.btn_star_big_on);
+			iv1.setImageResource(android.R.drawable.btn_star_big_on);
+		} else if (stars >= 2) {
+			iv2.setImageResource(android.R.drawable.btn_star_big_on);
+			iv1.setImageResource(android.R.drawable.btn_star_big_on);
+		} else {
 			iv1.setImageResource(android.R.drawable.btn_star_big_on);
 		}
 
